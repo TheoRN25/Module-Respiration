@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <audio src="https://assets.codepen.io/149381/breath_in.mp3" name="sounds"></audio>
+    <audio src="https://assets.codepen.io/149381/breath_out.mp3" name="sounds"></audio>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="menu.css">
+    <script src="script.js" defer></script>
+    <script src="menu.js" defer></script>
+    <title>Respiration Guidée</title>
+</head>
+<body>
+  <div class="content">
+    <button  class="menubox"id="menuBtn">MENU</button>  
+    <div id="menu" class="menubox">
+      <a href="tool.html">À propos de l'outil</a>
+        <label  class="day-night">
+          <div></div>
+          <input type="checkbox" checked />
+          <div></div>
+        </label>
+    </div>
+    <div class="wrap">
+      <div class="circle"></div>
+    </div>
+    <div class="informationContent">
+      <div id="actionDiv" class="actionDiv">
+        <h4 id="actionTitle" class="actionTitle"></h4>
+        <h5 id="modeTitle" class="modeTitle"></h5>
+      </div>
+      <div id="preSettings" class="equalizer">
+        <div class="preSettings">
+          <input type="radio" id="option1" name="options" value="option1" checked>
+          <label for="option1" name="labelOptions" data-timing="4-4-4-4" data-options="0" class="preset">Équilibrer</label>
+          <input type="radio" id="option2" name="options" value="option2">
+          <label for="option2" name="labelOptions" data-timing="6-2-6-2" data-options="1" class="preset">Apaiser</label>
+          <input type="radio" id="option3" name="options" value="option3">
+          <label for="option3" name="labelOptions" data-timing="2-4-2-4" data-options="2" class="preset">Dynamique</label>
+        </div>
+        <input type="radio" id="option4" name="options" value="option4">
+        <label for="option4" id="advancedSettingsBtn" name="labelOptions" data-options="3" class="preset">Paramètres avancés</label>
+        <br>
+        <div>
+          <label for="" class="soundsLabel">Sons :</label>
+          <label class="switch">
+            <input type="checkbox" id="soundBtn">
+            <span class="slider round"></span>
+          </label>
+        <span id="informationBtn" class="info-button">&iexcl;</span>
+      </div>
+        </div>
+      <button id="startStopBtn" class="startStopBtn">Commencer</button>
+    </div>
+    <dialog id="advancedSettingsDialog">
+      <div class="popup-content">
+        <span class="close" id="closeDialogBtn">&times;</span>
+        <br><br>
+        <div>
+          <label for="inhaleSlider">Inspiration :</label>
+          <input type="range" id="inhaleSlider" min="1" max="10" value="4" oninput="updateSliderValue('inhaleSlider', 'inhaleValue')">
+          <span id="inhaleValue">4s</span>
+        </div>
+        <div>
+          <label for="holdSlider">Maintien :</label>
+          <input type="range" id="holdSlider" min="0" max="10" value="4" oninput="updateSliderValue('holdSlider', 'holdValue')">
+          <span id="holdValue">4s</span>
+        </div>
+        <div>
+          <label for="exhaleSlider">Expiration :</label>
+          <input type="range" id="exhaleSlider" min="1" max="10" value="4" oninput="updateSliderValue('exhaleSlider', 'exhaleValue')">
+          <span id="exhaleValue">4s</span>
+        </div>
+        <div>
+          <label for="endHoldSlider">Maintien :</label>
+          <input type="range" id="endHoldSlider" min="0" max="10" value="4" oninput="updateSliderValue('endHoldSlider', 'endHoldValue')">
+          <span id="endHoldValue">4s</span>
+        </div>
+        <br>
+        <button id="saveSettingsBtn" class="btn btn-outline-dark">Sauvegarder</button>
+      </div>
+    </dialog>
+    <dialog id="informationModal">
+      <div class="popup-content">
+        <span class="close" id="closeInformationBtn">&times;</span>
+        <br>
+        <br>
+        <h3 name="informations"></h3>
+        <h5 name="informations" class="timing"></h5>
+        <br>
+        <p name="informations"></p>
+      </div>
+    </dialog>
+  </div>
+</body>
+</html>

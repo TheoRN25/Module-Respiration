@@ -1,0 +1,321 @@
+body {
+  margin: 0px;
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--background-color);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.settings {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: gray;
+  text-align: center;
+}
+
+.wrap {
+  position: fixed;
+  bottom: 50vh;
+  height: 235px;
+  width: 235px;
+  background: var(--background-color);
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #f9a6d7;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 62px #f5a1d3;
+  margin-top: 20%;
+}
+
+.circle {
+  height: 58.75px;
+  width: 58.75px;
+  background: pink;
+  border-radius: 100%;
+  background-color: #ffe588;
+  background-image: linear-gradient(45deg, #ffe588 0%, #ffa2df 100%);
+  border: 1px solid #f9a6d7;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 62px #f5a1d3;
+  opacity: 75%;
+}
+
+.pulse {
+  animation-name: pulse_animation;
+  animation-duration: 12s;
+  transform-origin: center center;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+@keyframes pulse_animation {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.5); }
+  50% { transform: scale(2); }
+  75% { transform: scale(1.5); }
+}
+
+.popup {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-content {
+  padding: 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.close {
+  color: black;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  visibility: visible;
+}
+
+.close:hover,
+.close:focus {
+  color: #aaa;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+h4 {
+  color: var(--text-color);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+dialog {
+  background-color: #f8f5f5e8;
+  border-radius: 30px;
+  width: 76vw;
+  max-width: 600px;
+}
+
+.preSettings div {
+  display: inline-block;
+  margin: 80px;
+}
+
+.preSettings input[type="radio"] {
+  display: none;
+}
+
+.preSettings input[type="radio"]:checked + .preset {
+  background-color: gray;
+  color: white;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .preset {
+  background-color: gray;
+}
+
+.preset {
+  background-color: var(--card-hover-border-color);
+  padding: 10px;
+  display: grid;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  flex: 1;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.startStopBtn {
+  background-color: var(--card-hover-border-color);
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  text-align: center;
+  cursor: pointer;
+  flex: 1;
+  color: var(--text-color);
+  font-weight: 700;
+}
+
+.preset:hover, .startStopBtn:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.preset:focus {
+  outline: none;
+}
+
+.equalizer {
+  background-color: var(--card-border-color);
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin: 20px;
+}
+
+.informationContent {
+  position: fixed;
+  bottom: 0;
+  text-align: center;
+  margin: 30px;
+}
+
+h5 {
+  color: var(--text-color);
+  margin-top: 40px;
+}
+
+.modeTitle {
+  margin-top: 15px;
+}
+
+.info-button {
+  position: relative;
+  right: 177.5px;
+  top: 15px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  background-color: transparent;
+  color: var(--text-color);
+  font-size: 20px;
+  line-height: 17.5px;
+  cursor: pointer;
+}
+
+.info-button:hover {
+  background-color: #ccc;
+  color: #333;
+}
+
+.actionDiv {
+  background-color: var(--card-border-color);
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: 40px;
+  width: 300px;
+  height: 130px;
+}
+
+.actionTitle {
+  margin-top: 15px;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+  left: 15px;
+  top: 5px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: -6px;
+  top: -3px;
+  background-color: gray;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: darkgray;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px darkgray;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.soundsLabel {
+  position: relative;
+  left: 15px;
+  color: var(--text-color);
+  padding-right: 10px;
+}
+
+.timing {
+  color: black;
+}
+
+label {
+  padding-right: 20px;
+}

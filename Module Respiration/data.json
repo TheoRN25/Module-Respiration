@@ -1,0 +1,22 @@
+[
+    {
+        "name":"Équilibrer",
+        "timing":"4s - 4s - 4s - 4s",
+        "description":"Des exercices pour harmoniser votre rythme respiratoire et trouver le calme intérieur."
+    },
+    {
+        "name":"Apaiser",
+        "timing":"6s - 2s - 6s - 2s",
+        "description":"Des techniques pour réduire le stress, apaiser l'anxiété et favoriser la détente."
+    },
+    {
+        "name":"Dynamique",
+        "timing":"2s - 4s - 2s - 4s",
+        "description":"Des exercices énergisants pour augmenter votre vitalité et améliorer la concentration."
+    },
+    {
+        "name":"Personnalisé",
+        "timing": null,
+        "description":"Créez votre propre expérience de respiration en adaptant les exercices à vos besoins spécifiques."
+    }
+]

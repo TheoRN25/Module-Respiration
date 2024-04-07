@@ -1,0 +1,243 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  --background-color: #101011;
+  --text-color: rgb(226, 226, 226);
+  --background-color-2:#42424252;
+  --card-background-color: rgba(165, 165, 165, 0.15);
+  --card-border-color: rgba(255, 255, 255, 0.1);
+  --card-box-shadow-1: rgba(0, 0, 0, 0.05);
+  --card-box-shadow-1-y: 3px;
+  --card-box-shadow-1-blur: 6px;
+  --card-box-shadow-2: rgba(0, 0, 0, 0.1);
+  --card-box-shadow-2-y: 8px;
+  --card-box-shadow-2-blur: 15px;
+  --card-label-color: #FFFFFF;
+  --card-icon-color: #D4D4D8;
+  --card-icon-background-color: rgba(255, 255, 255, 0.08);
+  --card-icon-border-color: rgba(255, 255, 255, 0.12);
+  --card-shine-opacity: .1;
+  --card-shine-gradient: conic-gradient(from 205deg at 50% 50%, rgba(157, 16, 185, 0) 0deg, #7b10b9 25deg, rgba(161, 52, 211, 0.18) 295deg, rgba(145, 16, 185, 0) 360deg);
+  --card-line-color: #2A2B2C;
+  --card-tile-color: rgba(157, 16, 185, 0.05);
+  --card-hover-border-color: rgba(255, 255, 255, 0.2);
+  --card-hover-box-shadow-1: rgba(0, 0, 0, 0.04);
+  --card-hover-box-shadow-1-y: 5px;
+  --card-hover-box-shadow-1-blur: 10px;
+  --card-hover-box-shadow-2: rgba(0, 0, 0, 0.3);
+  --card-hover-box-shadow-2-y: 15px;
+  --card-hover-box-shadow-2-blur: 2px;
+  --card-hover-icon-color: #e419f7;
+  --card-hover-icon-background-color: rgba(52, 211, 153, 0.1);
+  --card-hover-icon-border-color: rgba(52, 211, 153, 0.2);
+  --blur-opacity: .01;
+}
+body.light {
+  --background-color: #FAFAFA;
+  --text-color: #262629;
+  --background-color-2:#bdbdbd1f;
+  --card-background-color: rgba(255, 255, 255, 0.15);
+  --card-border-color: rgba(24, 24, 27, 0.08);
+  --card-box-shadow-1: rgba(24, 24, 27, 0.02);
+  --card-box-shadow-1-y: 3px;
+  --card-box-shadow-1-blur: 6px;
+  --card-box-shadow-2: rgba(24, 24, 27, 0.04);
+  --card-box-shadow-2-y: 2px;
+  --card-box-shadow-2-blur: 7px;
+  --card-label-color: #18181B;
+  --card-icon-color: #18181B;
+  --card-icon-background-color: rgba(24, 24, 27, 0.04);
+  --card-icon-border-color: rgba(24, 24, 27, 0.1);
+  --card-shine-opacity: .3;
+  --card-shine-gradient: conic-gradient(from 225deg at 50% 50%, rgba(171, 16, 185, 0) 0deg, #a510b9 25deg, #c600f8 285deg, #FFFFFF 345deg, rgba(145, 16, 185, 0) 360deg);
+  --card-line-color: #E9E9E7;
+  --card-tile-color: rgba(131, 16, 185, 0.08);
+  --card-hover-border-color: rgba(24, 24, 27, 0.15);
+  --card-hover-box-shadow-1: rgba(24, 24, 27, 0.05);
+  --card-hover-box-shadow-1-y: 3px;
+  --card-hover-box-shadow-1-blur: 6px;
+  --card-hover-box-shadow-2: rgba(24, 24, 27, 0.1);
+  --card-hover-box-shadow-2-y: 8px;
+  --card-hover-box-shadow-2-blur: 15px;
+  --card-hover-icon-color: #9e2cb4;
+  --card-hover-icon-background-color: rgba(24, 24, 27, 0.04);
+  --card-hover-icon-border-color: rgba(24, 24, 27, 0.34);
+  --blur-opacity: .1;
+}
+body.toggle .grid * {
+  transition-duration: 0s !important;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 240px);
+  grid-gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.day-night {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transform: translateY(25%);
+  opacity: 0.4;
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+.day-night input {
+  display: none;
+}
+.day-night input + div {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  box-shadow: inset 8px -8px 0 0 var(--text-color);
+  transform: scale(1) rotate(-2deg);
+  transition: box-shadow 0.5s ease 0s, transform 0.4s ease 0.1s;
+}
+.day-night input + div:before {
+  content: "";
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: background-color 0.3s ease;
+}
+.day-night input + div:after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: -3px 0 0 -3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 -23px 0 var(--text-color), 0 23px 0 var(--text-color), 23px 0 0 var(--text-color), -23px 0 0 var(--text-color), 15px 15px 0 var(--text-color), -15px 15px 0 var(--text-color), 15px -15px 0 var(--text-color), -15px -15px 0 var(--text-color);
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+.day-night input:checked + div {
+  box-shadow: inset 20px -20px 0 0 var(--text-color);
+  transform: scale(0.5) rotate(0deg);
+  transition: transform 0.3s ease 0.1s, box-shadow 0.2s ease 0s;
+}
+.day-night input:checked + div:before {
+  background: var(--text-color);
+  transition: background-color 0.3s ease 0.1s;
+}
+.day-night input:checked + div:after {
+  transform: scale(1);
+  transition: transform 0.5s ease 0.15s;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(197, 197, 197, 0.4235294118);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(163, 163, 163, 0.368627451);
+}
+
+/* Firefox */
+::-moz-scrollbar {
+  width: 8px;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+::-moz-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+.menubox {
+  position: fixed;
+  display: inline-block;
+  align-items: center;
+  top: 0px;
+  right: -15px;
+}
+
+#menuBtn {
+  position: fixed;
+  font-weight: bolder;
+  width: 150px;
+  top: 10px;
+  right: 0px;
+  color: var(--text-color);
+  padding: 10px 20px;
+  border: none;
+  border-start-start-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background: linear-gradient(rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+#menu {
+  position: fixed;
+  top: 45px;
+  width: 150px;
+  text-align: center;
+  right: 0px;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px;
+  border: 1px solid #ccc;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition: top 0.5s ease;
+  padding: 10px 0px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(rgba(255, 255, 255, 0.123), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+#menu.show {
+  opacity: 1;
+  top: 55px;
+  visibility: visible;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+#menu a {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+#socialIcons {
+  display: flex;
+  justify-content: flex-center;
+  align-items: center;
+}
+
+#socialIcons img {
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
+}/*# sourceMappingURL=menu.css.map */
